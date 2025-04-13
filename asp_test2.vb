@@ -61,3 +61,29 @@ End Sub
 'ビルドと確認:
 
 'ビルドしてページを表示し、テーマが正しく適用されているか確認します。
+'テーマを取得:
+
+'Visual Basic にはデフォルトでテーマ機能が備わっていないため、外部のライブラリやコントロールを使用する必要があります。例えば、VisualBasicPowerPacks ライブラリを使用して書かれたコードを取得しましょう。
+
+' 必要な名前空間をインポートする
+Imports Microsoft.VisualBasic.PowerPacks
+
+Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    ' テーマを作成し、フォームに適用する
+    Dim theme As New ShapeContainer
+    Me.Controls.Add(theme)
+    
+    Dim rectangle As New RectangleShape
+    With rectangle
+        .Size = New Size(800, 50) ' サイズを指定
+        .Location = New Point(0, 0) ' 位置を指定
+        .BorderStyle = DashStyle.Solid ' 枠線スタイルを指定
+        .BorderColor = Color.Blue ' 枠線の色を指定
+        .FillColor = Color.LightBlue ' 背景色を指定
+    End With
+    
+    theme.Shapes.Add(rectangle)
+End Sub
+'ビルドと確認:
+
+'プロジェクトをビルドし、フォームが正しくテーマ化されていることを確認します。
